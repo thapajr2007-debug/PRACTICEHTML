@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Mini HTML Project</title>
+    
+    <style>
+        body {
+            background-color: #f4f6f8;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        h2 {
+            color: #0066cc;
+            border-bottom: 2px solid #ccc;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004c99;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>👋 Welcome to My Page</h1>
+    <p>This page is made using <b>HTML only</b>.</p>
+
+    <hr>
+
+    <!-- Profile Section -->
+    <h2> About Me</h2>
+    <p>
+        Name: <b>Rajan</b><br>
+        Course: IT Student<br>
+        Learning: HTML Basics
+    </p>
+
+    <hr>
+
+    <!-- Fun Quiz -->
+    <h2> Mini Quiz</h2>
+
+    <form>
+        <p>1. HTML stands for?</p>
+        <input type="radio" name="q1"> Hyper Text Markup Language<br>
+        <input type="radio" name="q1"> High Text Machine Language<br><br>
+
+        <p>2. Which tag creates a line break?</p>
+        <input type="radio" name="q2"> &lt;p&gt;<br>
+        <input type="radio" name="q2"> &lt;br&gt;<br><br>
+
+        <input type="submit" value="Submit Quiz">
+    </form>
+
+    <hr>
+
+    <!-- Feedback Section -->
+    <h2> Feedback</h2>
+    <form>
+        <label>Your Name:</label><br>
+        <input type="text"><br><br>
+
+        <label>Rate this page:</label><br>
+        <select>
+            <option>Excellent ⭐⭐⭐⭐⭐</option>
+            <option>Good ⭐⭐⭐⭐</option>
+            <option>Average ⭐⭐⭐</option>
+        </select><br><br>
+
+        <label>Message:</label><br>
+        <textarea rows="4" cols="30"></textarea><br><br>
+
+        <input type="submit" value="Send Feedback">
+    </form>
+
+    <hr>
+
+    <p>📌 Made with ❤️ using HTML only</p>
+
+</body>
+</html>
