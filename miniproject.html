@@ -2,115 +2,191 @@
 <html>
 <head>
     <title>My Mini HTML Project</title>
-    
+
     <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --heading-color: #0066cc;
+            --border-color: #dddddd;
+            --button-bg: #0066cc;
+            --button-hover: #004c99;
+        }
+
+        /* ===== DARK MODE VARIABLES ===== */
+        #dark-mode:checked ~ .page {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #f1f1f1;
+            --heading-color: #4da3ff;
+            --border-color: #333;
+            --button-bg: #4da3ff;
+            --button-hover: #1e88e5;
+        }
+
         body {
-            background-color: #f4f6f8;
+            background-color: var(--bg-color);
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: auto;
+            color: var(--text-color);
         }
 
         h1 {
-            color: #2c3e50;
             text-align: center;
         }
 
         h2 {
-            color: #0066cc;
-            border-bottom: 2px solid #ccc;
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
         }
 
         p {
             font-size: 16px;
+            line-height: 1.6;
         }
 
-        form {
-            background-color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            width: 300px;
+        /* ===== CARD STYLE ===== */
+        .card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ===== FORM ===== */
         input, select, textarea {
             width: 100%;
+            padding: 8px;
             margin-top: 5px;
-            margin-bottom: 10px;
-            padding: 5px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--heading-color);
         }
 
         input[type="submit"] {
-            background-color: #0066cc;
+            background-color: var(--button-bg);
             color: white;
             border: none;
-            padding: 8px;
             cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         input[type="submit"]:hover {
-            background-color: #004c99;
+            background-color: var(--button-hover);
         }
 
-        hr {
-            margin: 20px 0;
+        /* ===== DARK MODE TOGGLE ===== */
+        .toggle {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .toggle label {
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 30px;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <h1>👋 Welcome to My Page</h1>
-    <p>This page is made using <b>HTML only</b>.</p>
+    <!-- Dark Mode Checkbox -->
+    <input type="checkbox" id="dark-mode" hidden>
 
-    <hr>
+    <div class="page">
 
-    <!-- Profile Section -->
-    <h2> About Me</h2>
-    <p>
-        Name: <b>Rajan</b><br>
-        Course: IT Student<br>
-        Learning: HTML Basics
-    </p>
+        <div class="toggle">
+            <label for="dark-mode">🌙 Enable Dark Mode</label>
+        </div>
 
-    <hr>
+        <h1>👋 Welcome to My Page</h1>
+        <p>This mini project is built using <b>HTML & basic CSS</b>.</p>
 
-    <!-- Fun Quiz -->
-    <h2> Mini Quiz</h2>
+        <!-- ABOUT -->
+        <div class="card">
+            <h2>About Me</h2>
+            <p>
+                Name: <b>Rajan</b><br>
+                Course: IT Student<br>
+                Learning: HTML & CSS Basics 🚀
+            </p>
+        </div>
 
-    <form>
-        <p>1. HTML stands for?</p>
-        <input type="radio" name="q1"> Hyper Text Markup Language<br>
-        <input type="radio" name="q1"> High Text Machine Language<br><br>
+        <!-- QUIZ -->
+        <div class="card">
+            <h2>Mini Quiz</h2>
 
-        <p>2. Which tag creates a line break?</p>
-        <input type="radio" name="q2"> &lt;p&gt;<br>
-        <input type="radio" name="q2"> &lt;br&gt;<br><br>
+            <form>
+                <p>1. HTML stands for?</p>
+                <input type="radio" name="q1"> Hyper Text Markup Language<br>
+                <input type="radio" name="q1"> High Text Machine Language<br><br>
 
-        <input type="submit" value="Submit Quiz">
-    </form>
+                <p>2. Which tag creates a line break?</p>
+                <input type="radio" name="q2"> &lt;p&gt;<br>
+                <input type="radio" name="q2"> &lt;br&gt;<br><br>
 
-    <hr>
+                <input type="submit" value="Submit Quiz">
+            </form>
+        </div>
 
-    <!-- Feedback Section -->
-    <h2> Feedback</h2>
-    <form>
-        <label>Your Name:</label><br>
-        <input type="text"><br><br>
+        <!-- FEEDBACK -->
+        <div class="card">
+            <h2>Feedback</h2>
 
-        <label>Rate this page:</label><br>
-        <select>
-            <option>Excellent ⭐⭐⭐⭐⭐</option>
-            <option>Good ⭐⭐⭐⭐</option>
-            <option>Average ⭐⭐⭐</option>
-        </select><br><br>
+            <form>
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your name">
 
-        <label>Message:</label><br>
-        <textarea rows="4" cols="30"></textarea><br><br>
+                <label>Rate this page</label>
+                <select>
+                    <option>⭐⭐⭐⭐⭐ Excellent</option>
+                    <option>⭐⭐⭐⭐ Good</option>
+                    <option>⭐⭐⭐ Average</option>
+                </select>
 
-        <input type="submit" value="Send Feedback">
-    </form>
+                <label>Message</label>
+                <textarea rows="4" placeholder="Write something..."></textarea>
 
-    <hr>
+                <input type="submit" value="Send Feedback">
+            </form>
+        </div>
 
-    <p>📌 Made with ❤️ using HTML only</p>
+        <footer>
+            📌 Updated version • Dark Mode Added • 
+        </footer>
+
+    </div>
 
 </body>
 </html>
+
+
+

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Mini HTML Project</title>
+
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --heading-color: #0066cc;
+            --border-color: #dddddd;
+            --button-bg: #0066cc;
+            --button-hover: #004c99;
+        }
+
+        /* ===== DARK MODE VARIABLES ===== */
+        #dark-mode:checked ~ .page {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #f1f1f1;
+            --heading-color: #4da3ff;
+            --border-color: #333;
+            --button-bg: #4da3ff;
+            --button-hover: #1e88e5;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: auto;
+            color: var(--text-color);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ===== CARD STYLE ===== */
+        .card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ===== FORM ===== */
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--heading-color);
+        }
+
+        input[type="submit"] {
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* ===== DARK MODE TOGGLE ===== */
+        .toggle {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .toggle label {
+            cursor: pointer;
+            font-size: 14px;
+        }
+       /* Fix radio buttons layout */
+.options {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* Prevent radios from full width */
+input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dark Mode Checkbox -->
+    <input type="checkbox" id="dark-mode" hidden>
+
+    <div class="page">
+
+        <div class="toggle">
+            <label for="dark-mode">🌙 Enable Dark Mode</label>
+        </div>
+
+        <h1> Welcome to My Page</h1>
+        <p>This mini project is built using <b>HTML & basic CSS</b>.</p>
+
+        <!-- ABOUT -->
+        <div class="card">
+            <h2>About Me</h2>
+            <p>
+                Name: <b>Rajan</b><br>
+                Course: IT Student<br>
+                Learning: HTML & CSS Basics 🚀
+            </p>
+        </div>
+
+        <!-- QUIZ -->
+        <div class="card">
+            <h2>Mini Quiz</h2>
+
+           <form>
+    <p>1. HTML stands for?</p>
+    <div class="options">
+        <label>
+            <input type="radio" name="q1">
+            Hyper Text Markup Language
+        </label>
+        <label>
+            <input type="radio" name="q1">
+            High Text Machine Language
+        </label>
+    </div>
+
+    <p>2. Which tag creates a line break?</p>
+    <div class="options">
+        <label>
+            <input type="radio" name="q2">
+            &lt;p&gt;
+        </label>
+        <label>
+            <input type="radio" name="q2">
+            &lt;br&gt;
+        </label>
+    </div>
+
+    <br>
+    <input type="submit" value="Submit Quiz">
+</form>
+
+        </div>
+
+        <!-- FEEDBACK -->
+        <div class="card">
+            <h2>Feedback</h2>
+
+            <form>
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your name">
+
+                <label>Rate this page</label>
+                <select>
+                    <option>⭐⭐⭐⭐⭐ Excellent</option>
+                    <option>⭐⭐⭐⭐ Good</option>
+                    <option>⭐⭐⭐ Average</option>
+                </select>
+
+                <label>Message</label>
+                <textarea rows="4" placeholder="Write something..."></textarea>
+
+                <input type="submit" value="Send Feedback">
+            </form>
+        </div>
+
+        <footer>
+            📌 Updated version • Dark Mode Added • 
+        </footer>
+
+    </div>
+
+</body>
+</html>
