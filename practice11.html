@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Animated CSS Human</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #425557, #66a6ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== HUMAN CONTAINER ===== */
+.human {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ===== HEAD ===== */
+.head {
+    width: 140px;
+    height: 140px;
+    background: #816448;
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Hair */
+.hair {
+    width: 100%;
+    height: 50px;
+    background: #841f1f;
+    border-radius: 50% 50% 0 0;
+}
+
+/* Eyes */
+.eye {
+    width: 18px;
+    height: 18px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 55px;
+    animation: blink 4s infinite;
+}
+
+.eye.left { left: 40px; }
+.eye.right { right: 40px; }
+
+/* Mouth */
+.mouth {
+    width: 50px;
+    height: 25px;
+    border-bottom: 4px solid #000;
+    border-radius: 0 0 50px 50px;
+    position: absolute;
+    bottom: 35px;
+    left: 45px;
+}
+
+/* ===== BODY ===== */
+.body {
+    width: 120px;
+    height: 160px;
+    background: #4a90e2;
+    margin-top: -10px;
+    border-radius: 20px;
+    position: relative;
+}
+
+/* Arms */
+.arm {
+    width: 30px;
+    height: 120px;
+    background: #ffcc99;
+    position: absolute;
+    top: 20px;
+    border-radius: 20px;
+}
+
+.arm.left {
+    left: -30px;
+}
+
+.arm.right {
+    right: -30px;
+    transform-origin: top;
+    animation: wave 1.5s infinite;
+}
+
+/* ===== LEGS ===== */
+.legs {
+    display: flex;
+}
+
+.leg {
+    width: 40px;
+    height: 120px;
+    background: #333;
+    margin: 0 10px;
+    border-radius: 20px;
+}
+
+/* ===== NAME ===== */
+.name {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(-30deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Hover reaction */
+.human:hover .mouth {
+    border-bottom: 4px solid red;
+}
+</style>
+</head>
+
+<body>
+
+<div class="human">
+    <div class="head">
+        <div class="hair"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+    </div>
+
+    <div class="body">
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+    </div>
+
+    <div class="legs">
+        <div class="leg"></div>
+        <div class="leg"></div>
+    </div>
+
+    <div class="name">Hi! I AM MADE WITH HTML AND CSS</div>
+</div>
+
+</body>
+</html>

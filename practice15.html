@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Academic Website</title>
+
+    <style>
+        /* ===== GENERAL STYLES ===== */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #80858b;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 40px;
+            margin: 20px auto;
+            width: 80%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ===== COURSES ===== */
+        .courses {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .course-card {
+            flex: 1;
+            min-width: 200px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 6px;
+            background-color: #fafafa;
+        }
+
+        /* ===== NOTICE ===== */
+        .notice {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffcc00;
+            padding: 15px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Rajan Academic Institute</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#courses">Courses</a>
+            <a href="#notice">Notices</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Rajan Academic Institute is committed to providing quality education
+            and fostering innovation, research, and professional excellence.
+        </p>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <div class="courses">
+            <div class="course-card">
+                <h3>Computer Science</h3>
+                <p>Programming, databases, and software development.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Information Technology</h3>
+                <p>Networking, security, and system administration.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Business Studies</h3>
+                <p>Management, finance, and entrepreneurship.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTICE -->
+    <section id="notice">
+        <h2>Notice Board</h2>
+        <div class="notice">
+            <p><strong>📢 Announcement:</strong> Semester examinations start from 10th June.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@rajaninstitute.edu</p>
+        <p>Phone: +977-123456789</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Rajan Academic Institute | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
+

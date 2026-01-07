@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Week 2026</title>
+
+    <!-- ===== CSS START ===== -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f8;
+        }
+
+        header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #1e90ff;
+        }
+
+        section {
+            padding: 30px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #1e90ff;
+        }
+
+        .event-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .event-box div {
+            background-color: #e6f0ff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        form input, form select, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        #message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+    <!-- ===== CSS END ===== -->
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>🏅 LBEF Sports Week 2026</h1>
+        <p>Play • Compete • Celebrate</p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#register">Register</a>
+    </nav>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Sports Week</h2>
+        <p>
+            Sports Week is a celebration of fitness, teamwork, and sportsmanship.
+            Students participate in multiple indoor and outdoor games.
+        </p>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events">
+        <h2>Sports Events</h2>
+        <div class="event-box">
+            <div>⚽ Football</div>
+            <div>🏀 Basketball</div>
+            <div>🏏 Cricket</div>
+            <div>🏐 Volleyball</div>
+            <div>🏸 Badminton</div>
+            <div>🏃 Athletics</div>
+        </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule">
+        <h2>Event Schedule</h2>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Event</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Day 1</td>
+                <td>Opening & Football</td>
+                <td>9:00 AM</td>
+            </tr>
+            <tr>
+                <td>Day 2</td>
+                <td>Cricket</td>
+                <td>10:00 AM</td>
+            </tr>
+            <tr>
+                <td>Day 3</td>
+                <td>Basketball & Volleyball</td>
+                <td>11:00 AM</td>
+            </tr>
+            <tr>
+                <td>Day 4</td>
+                <td>Athletics</td>
+                <td>8:00 AM</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- REGISTRATION -->
+    <section id="register">
+        <h2>Register Now</h2>
+        <form onsubmit="showMessage(event)">
+            <input type="text" placeholder="Student Name" required>
+            <input type="text" placeholder="Department" required>
+
+            <select required>
+                <option value="">Select Sport</option>
+                <option>Football</option>
+                <option>Cricket</option>
+                <option>Basketball</option>
+                <option>Volleyball</option>
+                <option>Badminton</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="message"></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Sports Week | All Rights Reserved</p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT START ===== -->
+    <script>
+        function showMessage(event) {
+            event.preventDefault();
+            document.getElementById("message").innerText =
+                "✅ Registration Successful! See you at Sports Week!";
+        }
+    </script>
+    <!-- ===== JAVASCRIPT END ===== -->
+
+</body>
+</html>

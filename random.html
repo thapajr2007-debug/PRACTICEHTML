@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Profile Card</title>
+
+    <style>
+        /* Page styling */
+        body {
+            background-color: #f2f4f7;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Card box */
+        .card {
+            background-color: white;
+            width: 300px;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        /* Hover effect */
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Profile image */
+        .card img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Name */
+        .card h2 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        /* Role */
+        .card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Button */
+        .card button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Profile">
+        <h2>Your Name</h2>
+        <p>Web Developer</p>
+        <button>Follow</button>
+    </div>
+
+</body>
+</html>
