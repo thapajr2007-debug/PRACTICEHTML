@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Magic Mood Orb</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial;
+      transition: 0.5s;
+      background: #111;
+      color: white;
+    }
+
+    .orb {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff, #555);
+      box-shadow: 0 0 30px white;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    h1 {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb" onclick="changeMood()"></div>
+  <h1 id="text">Click the Orb ✨</h1>
+
+  <script>
+    const moods = [
+      { color: "#ff7675", text: "Feeling Warm ❤️" },
+      { color: "#74b9ff", text: "Cool & Calm 💙" },
+      { color: "#55efc4", text: "Fresh & Happy 💚" },
+      { color: "#ffeaa7", text: "Bright Mood 💛" },
+      { color: "#a29bfe", text: "Dreamy 💜" }
+    ];
+
+    function changeMood() {
+      const random = moods[Math.floor(Math.random() * moods.length)];
+      document.body.style.background = random.color;
+      document.getElementById("text").innerText = random.text;
+    }
+  </script>
+
+</body>
+</html>
