@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cosmic Mood Portal</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-family: Arial;
+      overflow: hidden;
+      transition: 1s;
+    }
+
+    .orb {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff, #00f);
+      box-shadow: 0 0 60px cyan;
+      cursor: pointer;
+      animation: float 3s ease-in-out infinite;
+      transition: 0.2s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    h1 {
+      margin-top: 25px;
+      text-align: center;
+      animation: fade 1s;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: explode 1s linear forwards;
+    }
+
+    @keyframes explode {
+      to {
+        transform: translate(var(--x), var(--y));
+        opacity: 0;
+      }
+    }
+
+    .message {
+      position: absolute;
+      font-size: 22px;
+      animation: rise 2s forwards;
+    }
+
+    @keyframes rise {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-120px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orb" onclick="activate()"></div>
+  <h1 id="text">Touch the Portal 🌌</h1>
+
+  <script>
+    const moods = [
+      { bg: "linear-gradient(to right, #ff512f, #dd2476)", text: "🔥 Fire Energy!" },
+      { bg: "linear-gradient(to right, #24c6dc, #514a9d)", text: "🌊 Ocean Soul!" },
+      { bg: "linear-gradient(to right, #00b09b, #96c93d)", text: "🌿 Nature Mode!" },
+      { bg: "linear-gradient(to right, #fc466b, #3f5efb)", text: "💫 Cosmic Drift!" },
+      { bg: "linear-gradient(to right, #8360c3, #2ebf91)", text: "🧠 Dream State!" }
+    ];
+
+    function activate() {
+      const mood = moods[Math.floor(Math.random() * moods.length)];
+      document.body.style.background = mood.bg;
+      document.getElementById("text").innerText = mood.text;
+
+      burst();
+      floatingText(mood.text);
+      shakeScreen();
+    }
+
+    function burst() {
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.style.left = window.innerWidth / 2 + "px";
+        p.style.top = window.innerHeight / 2 + "px";
+        p.style.setProperty("--x", (Math.random() - 0.5) * 400 + "px");
+        p.style.setProperty("--y", (Math.random() - 0.5) * 400 + "px");
+        document.body.appendChild(p);
+
+        setTimeout(() => p.remove(), 1000);
+      }
+    }
+
+    function floatingText(text) {
+      const msg = document.createElement("div");
+      msg.className = "message";
+      msg.innerText = text;
+      msg.style.left = Math.random() * window.innerWidth + "px";
+      msg.style.top = Math.random() * window.innerHeight + "px";
+      document.body.appendChild(msg);
+
+      setTimeout(() => msg.remove(), 2000);
+    }
+
+    function shakeScreen() {
+      document.body.style.transform = "translateX(5px)";
+      setTimeout(() => document.body.style.transform = "translateX(-5px)", 50);
+      setTimeout(() => document.body.style.transform = "translateX(0)", 100);
+    }
+
+    document.addEventListener("mousemove", (e) => {
+      const orb = document.querySelector(".orb");
+      const x = (window.innerWidth / 2 - e.clientX) / 30;
+      const y = (window.innerHeight / 2 - e.clientY) / 30;
+      orb.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+
+</body>
+</html>
