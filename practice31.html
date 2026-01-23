@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Typing Speed Test</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #232526, #414345);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    .box {
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 15px;
+        width: 500px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+    }
+
+    .sentence {
+        font-size: 18px;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+
+    .sentence span.correct {
+        color: #2ecc71;
+    }
+
+    .sentence span.incorrect {
+        color: #e74c3c;
+        text-decoration: underline;
+    }
+
+    textarea {
+        width: 100%;
+        height: 90px;
+        border-radius: 10px;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        outline: none;
+        resize: none;
+    }
+
+    .stats {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 8px 18px;
+        border: none;
+        border-radius: 20px;
+        background: #3498db;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>⚡ Typing Speed Test</h1>
+    <div class="sentence" id="sentence"></div>
+    <textarea id="input" placeholder="Start typing here..."></textarea>
+
+    <div class="stats">
+        <div>WPM: <span id="wpm">0</span></div>
+        <div>Accuracy: <span id="accuracy">100</span>%</div>
+    </div>
+
+    <button onclick="resetTest()">Restart</button>
+</div>
+
+<script>
+    const sentences = [
+        "Learning to code is learning to create and solve problems.",
+        "Practice makes a developer faster and smarter.",
+        "JavaScript brings web pages to life.",
+        "Consistency is the key to mastering programming."
+    ];
+
+    let startTime = null;
+
+    function loadSentence() {
+        const sentence = sentences[Math.floor(Math.random() * sentences.length)];
+        const sentenceDiv = document.getElementById("sentence");
+        sentenceDiv.innerHTML = "";
+
+        sentence.split("").forEach(char => {
+            const span = document.createElement("span");
+            span.innerText = char;
+            sentenceDiv.appendChild(span);
+        });
+
+        document.getElementById("input").value = "";
+        document.getElementById("wpm").innerText = 0;
+        document.getElementById("accuracy").innerText = 100;
+        startTime = null;
+    }
+
+    document.getElementById("input").addEventListener("input", () => {
+        const input = document.getElementById("input").value;
+        const spans = document.querySelectorAll(".sentence span");
+
+        if (!startTime) startTime = new Date();
+
+        let correct = 0;
+        spans.forEach((span, index) => {
+            if (input[index] == null) {
+                span.className = "";
+            } else if (input[index] === span.innerText) {
+                span.className = "correct";
+                correct++;
+            } else {
+                span.className = "incorrect";
+            }
+        });
+
+        const timeTaken = (new Date() - startTime) / 60000;
+        const words = input.length / 5;
+        const wpm = timeTaken > 0 ? Math.round(words / timeTaken) : 0;
+
+        document.getElementById("wpm").innerText = wpm;
+        document.getElementById("accuracy").innerText =
+            input.length ? Math.round((correct / input.length) * 100) : 100;
+    });
+
+    function resetTest() {
+        loadSentence();
+    }
+
+    loadSentence();
+</script>
+
+</body>
+</html>
